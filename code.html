@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ODONTOMASTER - Clínica Dental Moderna</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#00c2b2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2322",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined { font-size: 24px; vertical-align: middle; }
+
+        /* Flip Card Styles */
+        .flip-card {
+            perspective: 1000px;
+            height: 340px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 0.75rem;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-primary/10 px-6 lg:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img alt="Logo Odontomaster" class="size-10" data-alt="Logotipo profesional de ODONTOMASTER en color turquesa" src="logo.jpeg"/>
+<h2 class="text-[#101818] text-xl font-extrabold tracking-tight uppercase">ODONTOMASTER</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#about">Sobre Nosotros</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#services">Servicios</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#team">Equipo Médico</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#location">Ubicación</a>
+</nav>
+<a class="bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all shadow-md shadow-primary/20" href="#booking">
+                Agendar Cita
+            </a>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center px-6 lg:px-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="Equipo de odontólogos sonriendo en una clínica moderna" src="hero.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl text-white">
+<span class="inline-block px-4 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary font-bold text-xs uppercase tracking-widest mb-6">Excelencia Dental</span>
+<h1 class="text-5xl lg:text-7xl font-black leading-[1.1] mb-6">Sonreír no cuesta</h1>
+<p class="text-lg lg:text-xl opacity-90 mb-8 max-w-lg leading-relaxed">
+                    Tu salud dental en manos expertas. Tecnología de vanguardia y calidez humana para transformar tu experiencia odontológica.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform" href="#booking">Inicia tu tratamiento</a>
+<a class="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/20 transition-all" href="#services">Ver Servicios</a>
+</div>
+</div>
+</section>
+<!-- About Us: Alternating Layout -->
+<section class="py-24 px-6 lg:px-20 bg-white" id="about">
+<div class="max-w-7xl mx-auto flex flex-col gap-24">
+<!-- Block 1 -->
+<div class="grid md:grid-cols-5 gap-12 items-center">
+<div class="order-2 md:order-1 md:col-span-3">
+<span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-5">Sobre Nosotros</span>
+<h2 class="text-4xl lg:text-5xl font-extrabold text-[#101818] mb-6 leading-tight">Innovación y Cuidado en cada <span class="text-primary">Sonrisa</span></h2>
+<p class="text-lg text-slate-600 leading-relaxed mb-8">
+                            En ODONTOMASTER, hemos redefinido el estándar de cuidado dental. Con más de 15 años de trayectoria, combinamos la precisión técnica con un enfoque profundamente humano.
+                        </p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 bg-background-light rounded-xl p-4 hover:shadow-md transition-all">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">precision_manufacturing</span>
+</div>
+<div>
+<h4 class="font-bold text-[#101818]">Tecnología de escaneo digital 3D</h4>
+<p class="text-sm text-slate-500">Diagnósticos precisos con equipos de última generación.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 bg-background-light rounded-xl p-4 hover:shadow-md transition-all">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary">spa</span>
+</div>
+<div>
+<h4 class="font-bold text-[#101818]">Ambiente relajante y libre de estrés</h4>
+<p class="text-sm text-slate-500">Espacios diseñados para tu comodidad y tranquilidad.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 md:order-2 md:col-span-2 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
+<img class="w-full h-[28rem] object-cover object-top" data-alt="Sala de espera moderna y elegante de la clínica" src="sobre nosotros.jpeg"/>
+</div>
+</div>
+<!-- Block 2 -->
+
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 px-6 lg:px-20 bg-background-light" id="services">
+<div class="max-w-7xl mx-auto text-center mb-16">
+<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Especialidades</h2>
+<h3 class="text-4xl font-extrabold text-[#101818]">Nuestros Servicios</h3>
+</div>
+<div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner">
+<!-- Front -->
+<div class="flip-card-front bg-white p-8 shadow-sm border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all flex flex-col">
+<div class="w-14 h-14 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">dentistry</span>
+</div>
+<h4 class="text-xl font-bold text-[#101818] mb-3">Ortodoncia Avanzada</h4>
+<p class="text-slate-600 mb-6">Invisalign y brackets estéticos para una alineación perfecta de tu sonrisa sin molestias.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-extrabold text-lg">Conocer más</span>
+<button class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Back -->
+<div class="flip-card-back bg-gradient-to-br from-primary to-teal-600 p-8 shadow-xl flex flex-col text-white">
+<h4 class="text-xl font-bold mb-4">Ortodoncia Avanzada</h4>
+<ul class="space-y-2 text-sm leading-relaxed flex-grow">
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Brackets metálicos y estéticos</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Alineadores invisibles (Invisalign)</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Control y seguimiento mensual</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Ortopedia funcional de maxilares</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Diagnóstico con escaneo 3D</li>
+</ul>
+<div class="mt-auto flex items-center justify-between pt-4 border-t border-white/20">
+<span class="font-extrabold text-lg">Desde Gs. 1.500.000</span>
+<button class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner">
+<!-- Front -->
+<div class="flip-card-front bg-white p-8 shadow-sm border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all flex flex-col">
+<div class="w-14 h-14 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">medical_services</span>
+</div>
+<h4 class="text-xl font-bold text-[#101818] mb-3">Implantes Dentales</h4>
+<p class="text-slate-600 mb-6">Recupera la funcionalidad y estética de tu dentadura con tecnología de titanio de alta gama.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-extrabold text-lg">Conocer más</span>
+<button class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Back -->
+<div class="flip-card-back bg-gradient-to-br from-primary to-teal-600 p-8 shadow-xl flex flex-col text-white">
+<h4 class="text-xl font-bold mb-4">Implantes Dentales</h4>
+<ul class="space-y-2 text-sm leading-relaxed flex-grow">
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Implantes de titanio de alta gama</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Coronas sobre implantes en porcelana</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Cirugía guiada por computadora</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Carga inmediata en casos seleccionados</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Garantía y seguimiento post-quirúrgico</li>
+</ul>
+<div class="mt-auto flex items-center justify-between pt-4 border-t border-white/20">
+<span class="font-extrabold text-lg">Desde Gs. 3.500.000</span>
+<button class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="flip-card" onclick="this.classList.toggle('flipped')">
+<div class="flip-card-inner">
+<!-- Front -->
+<div class="flip-card-front bg-white p-8 shadow-sm border border-slate-100 hover:border-primary/30 hover:shadow-xl transition-all flex flex-col">
+<div class="w-14 h-14 bg-primary/10 text-primary rounded-lg flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-3xl">auto_fix_high</span>
+</div>
+<h4 class="text-xl font-bold text-[#101818] mb-3">Diseño de Sonrisa</h4>
+<p class="text-slate-600 mb-6">Carillas de porcelana y blanqueamiento láser para lograr la sonrisa que siempre soñaste.</p>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-primary font-extrabold text-lg">Conocer más</span>
+<button class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Back -->
+<div class="flip-card-back bg-gradient-to-br from-primary to-teal-600 p-8 shadow-xl flex flex-col text-white">
+<h4 class="text-xl font-bold mb-4">Diseño de Sonrisa</h4>
+<ul class="space-y-2 text-sm leading-relaxed flex-grow">
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Carillas de porcelana ultrafinas</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Blanqueamiento láser profesional</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Diseño digital personalizado (DSD)</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Contorneo gingival estético</li>
+<li class="flex items-start gap-2"><span class="material-symbols-outlined text-base mt-0.5">check_circle</span> Mock-up de prueba antes del resultado final</li>
+</ul>
+<div class="mt-auto flex items-center justify-between pt-4 border-t border-white/20">
+<span class="font-extrabold text-lg">Desde Gs. 2.000.000</span>
+<button class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Medical Team -->
+<section class="py-24 px-6 lg:px-20 bg-white" id="team">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="max-w-xl text-left">
+<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Especialistas</h2>
+<h3 class="text-4xl font-extrabold text-[#101818]">Nuestro Equipo Médico</h3>
+</div>
+<p class="text-slate-500 font-medium">Liderados por la excelencia y la ética profesional.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-10">
+<!-- Dra Sully -->
+<div class="group">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 border-4 border-transparent group-hover:border-primary/20 transition-all">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Retrato de la Dra. Sully Ortega en bata blanca" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBub-yirq-zs8uCOAAXHRInZpr1429rqNF--_DyJxFW23171NpgOxQ-MUFhp3z4JHCv-cc5hNKeRou7JK2_GryUQZUze-VGnhksI_UM28RhD3YBcLoLdtMP6zhwmUOdiVGRx3CNh5fgjcEr6bAhKeh8lJvlx2RIpjiFtVoUVyk_S1gzdrYccBqnLITGeCDeflJE0XUP8qrV5MOleQNm674vyzOpAYLTrkMVMSmgwYrfIMA5PVL-lfWbB5zHgxlMiHMqfJCxUHUKuZJh"/>
+</div>
+<h4 class="text-xl font-extrabold text-[#101818]">Dra. Sully Ortega</h4>
+<p class="text-primary font-bold text-sm mb-3">Especialista en Ortodoncia</p>
+<p class="text-slate-600 text-sm leading-relaxed mb-4">Experta en alineación dental invisible y ortopedia funcional de los maxilares.</p>
+<a href="https://api.whatsapp.com/send?phone=595991726168&text=Hola!%20Me%20gustaria%20agendar%20una%20consulta%20con%20la%20Dra.%20Sully..%20" target="_blank" class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all shadow-md shadow-[#25D366]/20">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Contactar
+</a>
+</div>
+<!-- Dra Marisol -->
+<div class="group">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 border-4 border-transparent group-hover:border-primary/20 transition-all">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Retrato de la Dra. Marisol Amarilla con instrumental dental" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgawXSqtzkjJAjHLWKznyFYwEeYn3t6twL7YFGqM2HgEcdQqqLopv51bnaR8Kdm4CtqP5Q9pjmdyoaU_coi6dYeVmCl7WF7sD0JDfvMpgtNZi4sxAphrgQYgdLWc_WcfMod9OasdO9WEousrjxbAR-qpor4_-5TfkcD0BX19Fn0Ko7_POLrsDuf-h3OzcQ_tWJdY0p7Wf1QClDXPAef7RT6aPD0R9owUEmXQwwS0qUFgS_eDNFn5t2I8X969ROUL6_p9hnToaWdm_a"/>
+</div>
+<h4 class="text-xl font-extrabold text-[#101818]">Dra. Marisol Amarilla</h4>
+<p class="text-primary font-bold text-sm mb-3">Implantes y Estética</p>
+<p class="text-slate-600 text-sm leading-relaxed mb-4">Dedicada a crear experiencias positivas para los más pequeños y rehabilitaciones estéticas.</p>
+<a href="https://api.whatsapp.com/send?phone=595994994400&text=Hola!%20Me%20gustaria%20agendar%20una%20consulta%20con%20la%20Dra.%20Marisol.." target="_blank" class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all shadow-md shadow-[#25D366]/20">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Contactar
+</a>
+</div>
+<!-- Dr Miguel -->
+<div class="group">
+<div class="aspect-square rounded-xl overflow-hidden mb-6 border-4 border-transparent group-hover:border-primary/20 transition-all">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Retrato del Dr. Miguel Amarilla, director administrativo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxfyfa0o87S_pA9XD4zM08PKIfFUjPMLpM4jxFjaDMbs7ySTKz9w1fNEsScLbanXg9UCmI-L07FPG1RDJgsqOa8VPoNOLo4eFVc1GMMD4Y-mntdT2bFXeBr6JQeT_uaufGKL-MlJyLFCgGh166YeMFG0Bo7qawywF1F56YTZxJ0daTTcR6iaOUrdq3IvyE2dLvANjOLbdT4KEJFrXc2YWFTN6GZ3WTOCJj6xyY4bG8mrnLn_E5vgiVPwvgHKxPOxv8FCFXChqDP0pg"/>
+</div>
+<h4 class="text-xl font-extrabold text-[#101818]">Dr. Miguel Amarilla</h4>
+<p class="text-primary font-bold text-sm mb-3">Odontología Clínica</p>
+<p class="text-slate-600 text-sm leading-relaxed mb-4">Gestión integral del paciente y optimización de servicios para tu comodidad.</p>
+<a href="https://api.whatsapp.com/send?phone=595991726138&text=Quisiera%20agendar%20un%20turno%20con%20el%20Dr%20Miguel" target="_blank" class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all shadow-md shadow-[#25D366]/20">
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Contactar
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Galería / Nuestros Trabajos -->
+<section class="py-24 px-6 lg:px-20 bg-background-light" id="gallery">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Galería</h2>
+<h3 class="text-4xl font-extrabold text-[#101818]">Nuestros Trabajos</h3>
+<p class="mt-4 text-slate-600 max-w-2xl mx-auto">Resultados reales que transforman vidas. La excelencia técnica se refleja en cada sonrisa que diseñamos.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="group relative overflow-hidden rounded-xl shadow-lg">
+<img alt="Trabajo dental 1" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-bold">Diseño de Sonrisa Personalizado</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg">
+<img alt="Trabajo dental 2" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-bold">Rehabilitación con Implantes</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg">
+<img alt="Trabajo dental 3" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-bold">Ortodoncia Invisible Avanzada</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg">
+<img alt="Trabajo dental 4" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-bold">Blanqueamiento Profesional</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg">
+<img alt="Trabajo dental 5" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-bold">Estética Dental Integral</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg">
+<img alt="Trabajo dental 6" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<p class="text-white font-bold">Carillas de Porcelana de Alta Gama</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking Form Section -->
+<section class="py-24 px-6 lg:px-20 bg-background-dark text-white" id="booking">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Contacto</h2>
+<h3 class="text-5xl font-extrabold mb-8 leading-tight">Reserva tu cita hoy mismo</h3>
+<p class="text-slate-400 text-lg mb-10 leading-relaxed">
+                        No dejes para mañana la sonrisa que puedes tener hoy. Completa el formulario y nuestro equipo te contactará.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">phone_in_talk</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Llámanos</p>
+<p class="text-xl font-bold">+595 981 123 456</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<p class="text-xs text-slate-500 uppercase font-bold tracking-widest">Horario</p>
+<p class="text-xl font-bold">Lun - Vie: 08:00 a 19:00</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-8 lg:p-12 text-slate-800 shadow-2xl">
+<form id="bookingForm" class="grid gap-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-bold mb-2" for="nombre">Nombre Completo</label>
+<input id="nombre" name="nombre" class="w-full bg-slate-50 border-slate-200 rounded-lg focus:ring-primary focus:border-primary" placeholder="Ej: Juan Pérez" type="text" required/>
+</div>
+<div>
+<label class="block text-sm font-bold mb-2" for="telefono">Teléfono</label>
+<input id="telefono" name="telefono" class="w-full bg-slate-50 border-slate-200 rounded-lg focus:ring-primary focus:border-primary" placeholder="09XX XXX XXX" type="tel" required/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-bold mb-2" for="servicio">Servicio de Interés</label>
+<select id="servicio" name="servicio" class="w-full bg-slate-50 border-slate-200 rounded-lg focus:ring-primary focus:border-primary" required>
+<option value="">Selecciona un servicio</option>
+<option value="Ortodoncia">Ortodoncia</option>
+<option value="Estética Dental">Estética Dental</option>
+<option value="Implantes">Implantes</option>
+<option value="Consulta General">Consulta General</option>
+</select>
+</div>
+<div class="grid md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-bold mb-2" for="fechaCita">Fecha Preferida</label>
+<input id="fechaCita" name="fechaCita" class="w-full bg-slate-50 border-slate-200 rounded-lg focus:ring-primary focus:border-primary" type="date" required/>
+</div>
+<div>
+<label class="block text-sm font-bold mb-2">Turno</label>
+<div class="flex gap-4 pt-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="text-primary focus:ring-primary" name="turno" value="Mañana" type="radio" required/> <span class="text-sm">Mañana</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="text-primary focus:ring-primary" name="turno" value="Tarde" type="radio"/> <span class="text-sm">Tarde</span>
+</label>
+</div>
+</div>
+</div>
+<button id="btnSubmit" class="w-full bg-primary text-white font-black py-4 rounded-xl text-lg hover:shadow-lg hover:shadow-primary/30 transition-all mt-4" type="submit">
+                            CONFIRMAR SOLICITUD
+                        </button>
+</form>
+<!-- Mensaje de estado -->
+<div id="formMsg" class="hidden mt-4 p-4 rounded-xl text-center font-bold text-sm"></div>
+</div>
+</div>
+</section>
+<!-- Location: Map -->
+<section class="py-24 px-6 lg:px-20 bg-white" id="location">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/3">
+<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Ubicación</h2>
+<h3 class="text-4xl font-extrabold text-[#101818] mb-6">Visítanos en nuestra clínica</h3>
+<p class="text-slate-600 mb-8">
+                        Estamos ubicados en el corazón de la ciudad, con estacionamiento privado y fácil acceso.
+                    </p>
+<div class="flex gap-2 items-center text-slate-800 font-bold mb-2">
+<span class="material-symbols-outlined text-primary">location_on</span>
+                        Julia Miranda Cueto, Fernando de la Mora 1782
+                    </div>
+<p class="text-slate-500 pl-8 mb-8">Fernando de la Mora, Paraguay</p>
+<a class="text-primary font-bold underline decoration-2 underline-offset-4" href="https://maps.google.com" target="_blank">Abrir en Waze / Google Maps</a>
+</div>
+<div class="w-full md:w-2/3 h-[400px] bg-slate-200 rounded-2xl overflow-hidden shadow-inner relative">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1276!2d-57.550516!3d-25.3307368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945daf9b00c981b9%3A0x2719bcb44eb1fc8d!2sOdontomaster.py!5e1!3m2!1ses!2spy" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background-light pt-20 pb-10 px-6 lg:px-20 border-t border-slate-200">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Logo Odontomaster" class="size-8" data-alt="Logotipo reducido de la clínica" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARmKVe1zoQRtceENbGsbEmCa07nPidZXk88LSlc1_8ksqzhLVnohvLh_HfEa_X_MaPczkQRxj9ZlyfiAcXsDDbYKqTeTSV3eaN62FD6iKXw-TA05bIgEbu4i9Ue-xA1NmOItmzzE7XIgMRxQb-rfHw_ZFeUG8QYgNB03MDbGveU2dLMQdYZ6nHWHCHeTZFRRJGxks_bGseKdrWbs98nosQWIkfraukjKx6hs2mAWgK2ElywAjXFM5y6OE_9ghgGavanYr_Mxeav8bt"/>
+<h2 class="text-[#101818] text-lg font-black tracking-tight uppercase">ODONTOMASTER</h2>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">
+                    Comprometidos con la salud bucal de tu familia. Profesionales certificados al servicio de tu bienestar.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:text-primary transition-colors border border-slate-100" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:text-primary transition-colors border border-slate-100" href="#">
+<span class="material-symbols-outlined">camera_enhance</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-800 mb-6 uppercase text-xs tracking-widest">Navegación</h4>
+<ul class="space-y-4 text-sm font-medium text-slate-600">
+<li><a class="hover:text-primary transition-colors" href="#">Inicio</a></li>
+<li><a class="hover:text-primary transition-colors" href="#about">Sobre Nosotros</a></li>
+<li><a class="hover:text-primary transition-colors" href="#services">Nuestros Servicios</a></li>
+<li><a class="hover:text-primary transition-colors" href="#team">Equipo Médico</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-800 mb-6 uppercase text-xs tracking-widest">Horarios</h4>
+<ul class="space-y-4 text-sm font-medium text-slate-600">
+<li class="flex justify-between">
+<span>Lunes a Viernes</span>
+<span class="font-bold">08:00 - 19:00</span>
+</li>
+<li class="flex justify-between">
+<span>Sábados</span>
+<span class="font-bold">08:00 - 13:00</span>
+</li>
+<li class="flex justify-between">
+<span>Domingos</span>
+<span class="text-red-400 font-bold">Cerrado</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-800 mb-6 uppercase text-xs tracking-widest">Profesionales</h4>
+<ul class="space-y-2 text-sm font-medium text-slate-600">
+<li>Dra. Sully Ortega</li>
+<li>Dra. Marisol Amarilla</li>
+<li>Dr. Miguel Amarilla</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold text-slate-400">
+<p>© 2026 ODONTOMASTER. Todos los derechos reservados.</p>
+<div class="flex gap-6 uppercase tracking-widest">
+<a class="hover:text-slate-800 transition-colors" href="#">Privacidad</a>
+<a class="hover:text-slate-800 transition-colors" href="#">Términos</a>
+</div>
+</div>
+</footer>
+
+<script>
+(function () {
+    // ====== URL del Web App de Google Apps Script ======
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyOXibrBXc8zPMKv6qVgD45__BdxT63C_r72JVL-1IrTT4PpPpOfxp0gKV5iDAr9hSoZg/exec';
+
+    const form = document.getElementById('bookingForm');
+    const msg  = document.getElementById('formMsg');
+    const btn  = document.getElementById('btnSubmit');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Validar que se seleccionó turno
+        const turno = form.querySelector('input[name="turno"]:checked');
+        if (!turno) { showMsg('Por favor selecciona un turno.', false); return; }
+
+        // Preparar datos
+        const now = new Date();
+        const fechaEnvio = now.toLocaleDateString('es-PY') + ' ' + now.toLocaleTimeString('es-PY');
+
+        const data = {
+            FechaEnvio : fechaEnvio,
+            Nombre     : form.nombre.value.trim(),
+            Telefono   : form.telefono.value.trim(),
+            Servicio   : form.servicio.value,
+            FechaCita  : form.fechaCita.value,
+            Turno      : turno.value
+        };
+
+        // UI: estado enviando
+        btn.disabled = true;
+        btn.textContent = 'ENVIANDO...';
+        msg.classList.add('hidden');
+
+        try {
+            // Enviar como formulario URL-encoded (compatible con no-cors)
+            const formBody = new URLSearchParams(data).toString();
+            const res = await fetch(GOOGLE_SCRIPT_URL, {
+                method  : 'POST',
+                mode    : 'no-cors',
+                headers : { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body    : formBody
+            });
+
+            showMsg('¡Cita solicitada con éxito! Nos comunicaremos contigo pronto.', true);
+            form.reset();
+        } catch (err) {
+            showMsg('Ocurrió un error al enviar. Intenta de nuevo.', false);
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'CONFIRMAR SOLICITUD';
+        }
+    });
+
+    function showMsg(text, success) {
+        msg.textContent = text;
+        msg.className = 'mt-4 p-4 rounded-xl text-center font-bold text-sm '
+            + (success
+                ? 'bg-green-50 text-green-700 border border-green-200'
+                : 'bg-red-50 text-red-700 border border-red-200');
+    }
+})();
+</script>
+</body></html>
