@@ -29,6 +29,15 @@
         body { font-family: 'Manrope', sans-serif; }
         .material-symbols-outlined { font-size: 24px; vertical-align: middle; }
 
+        /* Mobile Menu */
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+        .mobile-menu.open { max-height: 400px; }
+
+        /* Gallery Carousel (mobile) */
+        .gallery-carousel { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .gallery-carousel::-webkit-scrollbar { display: none; }
+        .gallery-carousel > * { scroll-snap-align: center; }
+
         /* Flip Card Styles */
         .flip-card {
             perspective: 1000px;
@@ -72,9 +81,31 @@
 <a class="text-sm font-semibold hover:text-primary transition-colors" href="#team">Equipo Médico</a>
 <a class="text-sm font-semibold hover:text-primary transition-colors" href="#location">Ubicación</a>
 </nav>
-<a class="bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all shadow-md shadow-primary/20" href="#booking">
+<div class="flex items-center gap-3">
+<a class="bg-primary text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all shadow-md shadow-primary/20 hidden md:inline-block" href="#booking">
                 Agendar Cita
             </a>
+<!-- Hamburger Button (mobile only) -->
+<button id="hamburgerBtn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors" onclick="document.getElementById('mobileMenu').classList.toggle('open'); this.classList.toggle('active')">
+<span class="block w-6 h-0.5 bg-slate-800 mb-1.5 transition-transform" id="hamLine1"></span>
+<span class="block w-6 h-0.5 bg-slate-800 mb-1.5 transition-opacity" id="hamLine2"></span>
+<span class="block w-6 h-0.5 bg-slate-800 transition-transform" id="hamLine3"></span>
+</button>
+</div>
+</div>
+<!-- Mobile Dropdown Menu -->
+<div id="mobileMenu" class="mobile-menu md:hidden">
+<nav class="flex flex-col gap-1 pt-4 pb-2 border-t border-slate-100 mt-4">
+<a class="text-sm font-semibold hover:text-primary transition-colors py-3 px-2 rounded-lg hover:bg-slate-50" href="#about" onclick="document.getElementById('mobileMenu').classList.remove('open')">Sobre Nosotros</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors py-3 px-2 rounded-lg hover:bg-slate-50" href="#services" onclick="document.getElementById('mobileMenu').classList.remove('open')">Servicios</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors py-3 px-2 rounded-lg hover:bg-slate-50" href="#team" onclick="document.getElementById('mobileMenu').classList.remove('open')">Equipo Médico</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors py-3 px-2 rounded-lg hover:bg-slate-50" href="#location" onclick="document.getElementById('mobileMenu').classList.remove('open')">Ubicación</a>
+<a class="bg-primary text-white px-5 py-3 rounded-lg font-bold text-sm text-center hover:opacity-90 transition-all shadow-md shadow-primary/20 mt-2" href="#booking" onclick="document.getElementById('mobileMenu').classList.remove('open')">Agendar Cita</a>
+<a class="flex items-center gap-2 text-sm font-semibold hover:text-primary transition-colors py-3 px-2 rounded-lg hover:bg-slate-50 mt-1" href="https://www.instagram.com/odontomasterpy/?hl=es" target="_blank">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+@odontomasterpy
+</a>
+</nav>
 </div>
 </header>
 <main>
@@ -101,7 +132,7 @@
 <div class="max-w-7xl mx-auto flex flex-col gap-24">
 <!-- Block 1 -->
 <div class="grid md:grid-cols-5 gap-12 items-center">
-<div class="order-2 md:order-1 md:col-span-3">
+<div class="md:col-span-3">
 <span class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-5">Sobre Nosotros</span>
 <h2 class="text-4xl lg:text-5xl font-extrabold text-[#101818] mb-6 leading-tight">Innovación y Cuidado en cada <span class="text-primary">Sonrisa</span></h2>
 <p class="text-lg text-slate-600 leading-relaxed mb-8">
@@ -128,8 +159,8 @@
 </div>
 </div>
 </div>
-<div class="order-1 md:order-2 md:col-span-2 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
-<img class="w-full h-[28rem] object-cover object-top" data-alt="Sala de espera moderna y elegante de la clínica" src="sobre nosotros.jpeg"/>
+<div class="order-last md:order-none md:col-span-2 rounded-2xl overflow-hidden shadow-xl ring-1 ring-black/5">
+<img class="w-full h-80 md:h-[28rem] object-cover object-top" data-alt="Especialistas en sala" src="sobre nosotros.jpeg"/>
 </div>
 </div>
 <!-- Block 2 -->
@@ -137,9 +168,9 @@
 </div>
 </section>
 <!-- Services Section -->
-<section class="py-24 px-6 lg:px-20 bg-background-light" id="services">
+<section class="py-24 px-6 lg:px-20 bg-gray-100" id="services">  
 <div class="max-w-7xl mx-auto text-center mb-16">
-<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Especialidades</h2>
+<h2 class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-5">Especialidades</h2>
 <h3 class="text-4xl font-extrabold text-[#101818]">Nuestros Servicios</h3>
 </div>
 <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
@@ -258,7 +289,7 @@
 <div class="max-w-7xl mx-auto">
 <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
 <div class="max-w-xl text-left">
-<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Especialistas</h2>
+<h2 class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-5">Especialistas</h2>
 <h3 class="text-4xl font-extrabold text-[#101818]">Nuestro Equipo Médico</h3>
 </div>
 <p class="text-slate-500 font-medium">Liderados por la excelencia y la ética profesional.</p>
@@ -307,14 +338,15 @@ Contactar
 </div>
 </section>
 <!-- Galería / Nuestros Trabajos -->
-<section class="py-24 px-6 lg:px-20 bg-background-light" id="gallery">
+<section class="py-24 px-6 lg:px-20 bg-gray-100" id="gallery">
 <div class="max-w-7xl mx-auto">
 <div class="text-center mb-16">
-<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Galería</h2>
+<h2 class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-5">Galería</h2>
 <h3 class="text-4xl font-extrabold text-[#101818]">Nuestros Trabajos</h3>
 <p class="mt-4 text-slate-600 max-w-2xl mx-auto">Resultados reales que transforman vidas. La excelencia técnica se refleja en cada sonrisa que diseñamos.</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Desktop grid -->
+<div class="hidden md:grid md:grid-cols-3 gap-6">
 <div class="group relative overflow-hidden rounded-xl shadow-lg">
 <img alt="Trabajo dental 1" class="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500" src="{{DATA:IMAGE:IMAGE_5}}"/>
 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
@@ -352,13 +384,63 @@ Contactar
 </div>
 </div>
 </div>
+<!-- Mobile carousel -->
+<div class="md:hidden relative">
+<div id="galleryCarousel" class="gallery-carousel flex gap-4 overflow-x-auto pb-4">
+<div class="group relative overflow-hidden rounded-xl shadow-lg flex-shrink-0 w-[85vw]">
+<img alt="Trabajo dental 1" class="w-full h-64 object-cover" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+<p class="text-white font-bold">Diseño de Sonrisa Personalizado</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg flex-shrink-0 w-[85vw]">
+<img alt="Trabajo dental 2" class="w-full h-64 object-cover" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+<p class="text-white font-bold">Rehabilitación con Implantes</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg flex-shrink-0 w-[85vw]">
+<img alt="Trabajo dental 3" class="w-full h-64 object-cover" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+<p class="text-white font-bold">Ortodoncia Invisible Avanzada</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg flex-shrink-0 w-[85vw]">
+<img alt="Trabajo dental 4" class="w-full h-64 object-cover" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+<p class="text-white font-bold">Blanqueamiento Profesional</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg flex-shrink-0 w-[85vw]">
+<img alt="Trabajo dental 5" class="w-full h-64 object-cover" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+<p class="text-white font-bold">Estética Dental Integral</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl shadow-lg flex-shrink-0 w-[85vw]">
+<img alt="Trabajo dental 6" class="w-full h-64 object-cover" src="{{DATA:IMAGE:IMAGE_5}}"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
+<p class="text-white font-bold">Carillas de Porcelana de Alta Gama</p>
+</div>
+</div>
+</div>
+<!-- Carousel dots -->
+<div class="flex justify-center gap-2 mt-4" id="carouselDots">
+<button class="w-2.5 h-2.5 rounded-full bg-primary" data-index="0"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-slate-300" data-index="1"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-slate-300" data-index="2"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-slate-300" data-index="3"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-slate-300" data-index="4"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-slate-300" data-index="5"></button>
+</div>
+</div>
 </div>
 </section>
 <!-- Booking Form Section -->
 <section class="py-24 px-6 lg:px-20 bg-background-dark text-white" id="booking">
 <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
 <div>
-<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Contacto</h2>
+<h2 class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-5">Contacto</h2>
 <h3 class="text-5xl font-extrabold mb-8 leading-tight">Reserva tu cita hoy mismo</h3>
 <p class="text-slate-400 text-lg mb-10 leading-relaxed">
                         No dejes para mañana la sonrisa que puedes tener hoy. Completa el formulario y nuestro equipo te contactará.
@@ -436,7 +518,7 @@ Contactar
 <section class="py-24 px-6 lg:px-20 bg-white" id="location">
 <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
 <div class="w-full md:w-1/3">
-<h2 class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Ubicación</h2>
+<h2 class="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-[0.2em] mb-5">Ubicación</h2>
 <h3 class="text-4xl font-extrabold text-[#101818] mb-6">Visítanos en nuestra clínica</h3>
 <p class="text-slate-600 mb-8">
                         Estamos ubicados en el corazón de la ciudad, con estacionamiento privado y fácil acceso.
@@ -466,11 +548,8 @@ Contactar
                     Comprometidos con la salud bucal de tu familia. Profesionales certificados al servicio de tu bienestar.
                 </p>
 <div class="flex gap-4">
-<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:text-primary transition-colors border border-slate-100" href="#">
-<span class="material-symbols-outlined">social_leaderboard</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:text-primary transition-colors border border-slate-100" href="#">
-<span class="material-symbols-outlined">camera_enhance</span>
+<a class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:text-primary transition-colors border border-slate-100" href="https://www.instagram.com/odontomasterpy/?hl=es" target="_blank" title="Síguenos en Instagram">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
 </a>
 </div>
 </div>
@@ -579,6 +658,34 @@ Contactar
                 ? 'bg-green-50 text-green-700 border border-green-200'
                 : 'bg-red-50 text-red-700 border border-red-200');
     }
+})();
+</script>
+
+<!-- Gallery Carousel JS -->
+<script>
+(function() {
+    const carousel = document.getElementById('galleryCarousel');
+    const dots = document.querySelectorAll('#carouselDots button');
+    if (!carousel || !dots.length) return;
+
+    function updateDots() {
+        const scrollLeft = carousel.scrollLeft;
+        const itemWidth = carousel.querySelector(':first-child').offsetWidth + 16; // gap
+        const index = Math.round(scrollLeft / itemWidth);
+        dots.forEach((d, i) => {
+            d.className = 'w-2.5 h-2.5 rounded-full transition-colors ' + (i === index ? 'bg-primary' : 'bg-slate-300');
+        });
+    }
+
+    carousel.addEventListener('scroll', updateDots);
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const idx = parseInt(dot.dataset.index);
+            const itemWidth = carousel.querySelector(':first-child').offsetWidth + 16;
+            carousel.scrollTo({ left: idx * itemWidth, behavior: 'smooth' });
+        });
+    });
 })();
 </script>
 </body></html>
